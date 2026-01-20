@@ -3,7 +3,7 @@ import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 import axios from 'axios';
 import { AppContext } from '../../AppContext';
-import DatePicker from 'react-datepicker';  
+import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import { IoMdClose } from "react-icons/io";
 import Message from '../../Utility/MesaageBox';
@@ -64,7 +64,7 @@ const Schedule = () => {
             return;
         }
         try {
-            const response = await axios.get(`http://192.168.1.7:5000/patient/getphoneno/${phoneNo}`);
+            const response = await axios.get(`https://hospital-management-dq7p.onrender.com/patient/getphoneno/${phoneNo}`);
             if (response.status === 200) {
                 setPhoneData(response.data.data);
                 setOtp(Array(6).fill(""))
@@ -91,7 +91,7 @@ const Schedule = () => {
                 Time: formattedTime,
             };
 
-            const response = await axios.post("http://192.168.1.7:5000/patient/ExistPatient", payload);
+            const response = await axios.post("https://hospital-management-dq7p.onrender.com/patient/ExistPatient", payload);
             if (response.status === 200) {
                 setappData(response.data.data);
                 resetForm();
@@ -107,7 +107,7 @@ const Schedule = () => {
     /* Check Patient Avaible or Not On feild change */
     const CheckPatientId = async (val) => {
         try {
-            const response = await axios.post("http://192.168.1.7:5000/patient/ExistPatientCheck", { PatientId: val });
+            const response = await axios.post("https://hospital-management-dq7p.onrender.com/patient/ExistPatientCheck", { PatientId: val });
             if (response.status === 200) {
                 setMasaageBox({ show: true, type: "success", message: "Patient Avaiable" });
             } else {

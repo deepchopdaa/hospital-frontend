@@ -54,7 +54,7 @@ const NewScheduleForm = () => {
             };
 
             /* New Patient Appointment Api Called */
-            const response = await axios.post("http://192.168.1.7:5000/patient/NewPatient", payload);
+            const response = await axios.post("https://hospital-management-dq7p.onrender.com/patient/NewPatient", payload);
             if (response.status === 200) {
                 setappData(response.data.data);
                 resetForm();

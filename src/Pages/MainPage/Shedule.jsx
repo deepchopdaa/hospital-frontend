@@ -54,7 +54,7 @@ const NewCombinedConsultation = () => {
             return;
         }
         try {
-            const response = await axios.get(`http://192.168.1.7:5000/patient/getphoneno/${phoneNo}`);
+            const response = await axios.get(`https://hospital-management-dq7p.onrender.com/patient/getphoneno/${phoneNo}`);
             if (response.status === 200) {
                 setPhoneData(response.data.data);
                 setActivePopup("otpVerify")
@@ -88,7 +88,7 @@ const NewCombinedConsultation = () => {
                 Time: time,
             };
 
-            const response = await axios.put(`http://192.168.1.7:5000/patient/Update/${id}`, payload);
+            const response = await axios.put(`https://hospital-management-dq7p.onrender.com/patient/Update/${id}`, payload);
             if (response.status === 200) {
                 setCaseData(response.data.data);
                 setActivePopup("rescheduleApprove");
@@ -123,7 +123,7 @@ const NewCombinedConsultation = () => {
             return;
         }
         try {
-            const response = await axios.delete(`http://192.168.1.7:5000/patient/calcel/${id}`);
+            const response = await axios.delete(`https://hospital-management-dq7p.onrender.com/patient/calcel/${id}`);
             if (response.status === 200) {
                 setActivePopup("appointmentCancel")
             }
@@ -139,7 +139,7 @@ const NewCombinedConsultation = () => {
             return;
         }
         try {
-            const response = await axios.get(`http://192.168.1.7:5000/patient/Get/${inputId}`);
+            const response = await axios.get(`https://hospital-management-dq7p.onrender.com/patient/Get/${inputId}`);
             if (response.status === 200) {
                 setCaseData(response.data.data);
                 setActivePopup("rescheduleCancel");
